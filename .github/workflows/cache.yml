@@ -3,11 +3,9 @@
 # name of the workflow: will be visible in the dashboard and in Splunk
 name: template by @cpintado
 
-# Trigger the workflow when the Star button is clicked
+# Trigger the workflow on push (needed for cache)
 on:
-  watch:
-    types:
-      - started
+  push:
 
 # list of jobs, creat more than one if necessary
 jobs:
@@ -16,6 +14,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    # Gets the directory that will be used by PHP composer to store its dependencies
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
