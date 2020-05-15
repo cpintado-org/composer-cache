@@ -21,9 +21,9 @@ jobs:
         echo "::set-output name=dir::$(composer config cache-files-dir)"
     - name: print cache directory as seen by the docker action
       uses: php-actions/composer@v1
-        with: composer config cache-files-dir
-    - name: print  current directory as seen by the docker action
-      uses: php-actions/composer@v1
-        with: pwd
+        with: config cache-files-dir
+ #   - name: print  current directory as seen by the docker action
+ #     uses: php-actions/composer@v1
+ #       with: pwd
     - name: Install dependencies
       uses: php-actions/composer@v1
