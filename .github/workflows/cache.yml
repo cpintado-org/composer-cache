@@ -19,7 +19,7 @@ jobs:
       id: composer-cache
       run: |
         composer config cache-files-dir
-        echo "::set-output name=dir::$(composer config cache-files-dir)"
+#        echo "::set-output name=dir::$(composer config cache-files-dir)"
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
