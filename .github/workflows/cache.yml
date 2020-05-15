@@ -18,9 +18,9 @@ jobs:
     - name: Get Composer Cache Directory
       id: composer-cache
       run: |
-        composer config cache-files-dir
-#        echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Install dependencies
+      uses: php-actions/composer@v1
+    # prints composer.lock
+    - name: 
+      run: cat composer.lock
