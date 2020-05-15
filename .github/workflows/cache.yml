@@ -19,11 +19,5 @@ jobs:
       id: composer-cache
       run: |
         echo "::set-output name=dir::$(composer config cache-files-dir)"
-    - name: print cache directory as seen by the docker action
-      uses: php-actions/composer@v1
-        with: config cache-files-dir
- #   - name: print  current directory as seen by the docker action
- #     uses: php-actions/composer@v1
- #       with: pwd
     - name: Install dependencies
-      uses: php-actions/composer@v1
+      uses: cpintado-org/composer-action@master
